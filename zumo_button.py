@@ -4,7 +4,7 @@ import wiringpi2 as wp
 class ZumoButton():
 
     def __init__(self):
-        wp.wiringPiSetupGpio()
+        #wp.wiringPiSetupGpio()
         wp.pinMode(22, 0)
         wp.pullUpDnControl(22, 2)
 
