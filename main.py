@@ -1,5 +1,7 @@
+import robodemo
+
 def main():
-    pass
+    robodemo.dancer()
 
 if __name__ == "__main__":
     main()
