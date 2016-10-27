@@ -1,11 +1,11 @@
 import robodemo
+import wiringpi2 as wp
 
 from motors import Motors
 
 def main():
-    m = Motors()
-    while True:
-        robodemo.random_step(m)
+    wp.wiringPiSetupGpio()
+    robodemo.dancer()
 
 if __name__ == "__main__":
     main()
