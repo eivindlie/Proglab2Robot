@@ -1,4 +1,5 @@
-
+import time
+import sys
 
 class BBCON:
     behaviors = []
@@ -6,6 +7,8 @@ class BBCON:
     sensobs = []
     motobs = []
     arbitrator = None
+
+    _wait_duration = 0.5 # The amount of time (in seconds) that the program sleeps each time tick
 
     def add_behavior(self, behavior):
         if behavior not in self.behaviors:
@@ -24,4 +27,24 @@ class BBCON:
             self.active_behaviors.remove(behavior)
 
     def run_one_timestep(self):
-        pass
+        for sensob in self.sensobs:
+            sensob.update()
+
+        for behavior in self.active_behaviors:
+            behavior.update()
+
+        motor_recommendations, request_halt = self.arbitrator.choose_action(self.active_behaviors)
+
+        if request_halt:
+            # If halt is requested: stop all motors, and exit program
+            for motob in self.motobs:
+                motob.stop()
+            sys.exit(0)
+
+        for i in range(len(motor_recommendations)):
+            self.motobs[i].update(motor_recommendations[i])
+
+        time.sleep(self._sleep_duration)
+
+        for sensob in self.sensobs:
+            sensob.reset()

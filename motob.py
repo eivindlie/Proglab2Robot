@@ -12,4 +12,6 @@ class Motob:
         # convert motor recomendation into motor settings, and send settings to motors
         pass
 
-    
+    def stop(self):
+        # Stop all motors
+        pass
