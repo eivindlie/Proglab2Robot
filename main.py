@@ -1,11 +1,11 @@
-import robodemo
 import wiringpi2 as wp
-
-from motors import Motors
+from bbcon import BBCON
 
 def main():
     wp.wiringPiSetupGpio()
-    robodemo.dancer()
+    bbcon = BBCON()
+    while True:
+        bbcon.run_one_timestep()
 
 if __name__ == "__main__":
     main()
