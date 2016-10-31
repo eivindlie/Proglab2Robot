@@ -5,5 +5,6 @@ from sensors.sensob import Sensob
 class DistanceSensob(Sensob):
 
     def update(self):
+        self.sensors[0].update()
         self.value = self.sensors[0].get_value()
         print(self.value)
