@@ -12,9 +12,9 @@ class RunForward(Behavior):
         if self.start_time == -1:
             self.start_time = time.time()
             return
-        
+
         if time.time() - self.start_time < 1:
-            self.motor_recommendations = [(Command.F, 0.1)]
+            self.motor_recommendations = [(Command.F, 0.3)]
         else:
             self.request_halt = True
         self.match_degree = 1.0
