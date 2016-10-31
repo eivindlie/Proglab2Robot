@@ -9,8 +9,8 @@ class RunForward(Behavior):
         self.start_time = time.time()
 
     def sense_and_act(self):
-        if time.time() - self.start_time < 5:
-            self.motor_recommendations = [(Command.F, 0.5)]
+        if time.time() - self.start_time < 1:
+            self.motor_recommendations = [(Command.F, 0.1)]
         else:
             self.request_halt = True
         self.match_degree = 1.0
