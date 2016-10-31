@@ -3,6 +3,8 @@ import sys
 from motob import Motob
 from motors import Motors
 from arbitrator import Arbitrator
+from sensors.distance_sensob import DistanceSensob
+from sensors.ultrasonic import Ultrasonic
 
 class BBCON:
     behaviors = []
@@ -21,7 +23,7 @@ class BBCON:
         self.motobs.append(Motob(Motors()))
 
         # Initialize sensobs
-        pass
+        self.sensobs.append(DistanceSensob([Ultrasonic()]))
 
 
 
