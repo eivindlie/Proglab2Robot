@@ -9,3 +9,9 @@ class Sensob:
     # Fetch sensor values, and update the value field correspondingly
     def update(self):
         self.value = 0
+
+    # Resets value of self and associated sensors
+    def reset(self):
+        self.value = 0
+        for s in self.sensors:
+            s.reset()
