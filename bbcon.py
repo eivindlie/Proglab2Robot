@@ -3,12 +3,18 @@ import sys
 from motob import Motob
 from motors import Motors
 from arbitrator import Arbitrator
+
 from sensors.distance_sensob import DistanceSensob
+
 from sensors.ultrasonic import Ultrasonic
+from sensors.camera import Camera
+from sensors.reflectance_sensors import ReflectanceSensors
+from sensors.irproximity_sensor import IRProximitySensor
 
 class BBCON:
     behaviors = []
     active_behaviors = []
+    sensors = []
     sensobs = []
     motobs = []
     arbitrator = None
@@ -22,8 +28,14 @@ class BBCON:
         # Initialize motobs (single object for both motors on the Zumo)
         self.motobs.append(Motob(Motors()))
 
+        # Initialize sensors
+        self.sensors.append(Ultrasonic())
+        self.sensors.append(IRProximitySensor())
+        self.sensors.append(ReflectanceSensors())
+        self.sensobs.append(Camera())
+
         # Initialize sensobs
-        self.sensobs.append(DistanceSensob([Ultrasonic()]))
+        self.sensobs.append(DistanceSensob([self.sensors[0]]))
 
 
 
@@ -46,6 +58,9 @@ class BBCON:
             behavior.active = False
 
     def run_one_timestep(self):
+        for sensor in self.sensors:
+            sensor.update()
+
         for sensob in self.sensobs:
             sensob.update()
 
