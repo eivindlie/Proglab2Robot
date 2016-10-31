@@ -15,11 +15,11 @@ class Behavior:
     # priority: The priority assigned to this behavior. Used to calculate the weight.
     # sensobs: A list of all the sensobs necessary for this behavior to function
     # active: A flag that indicates whether or not this behavior is currently active. (Default: False)
-    def __init__(self, bbcon, priority, sensobs, active = False):
+    def __init__(self, bbcon, priority, sensobs):
         self.bbcon = bbcon
         self.priority = priority
         self.sensobs = sensobs
-        self.active = active
+        self.active = False
 
     # Tests whether the behavior should deactivate
     def consider_deactivation(self):

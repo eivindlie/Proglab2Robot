@@ -4,8 +4,8 @@ import time
 
 class RunForward(Behavior):
 
-    def __init__(self, bbcon, priority, sensobs, active = False):
-        self.super().__init__(bbcon, priority, sensobs, active)
+    def __init__(self, bbcon, priority, sensobs):
+        super().__init__(bbcon, priority, sensobs)
         self.start_time = time.time()
 
     def sense_and_act(self):

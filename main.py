@@ -5,7 +5,7 @@ from behaviors.run_forward import RunForward
 def main():
     wp.wiringPiSetupGpio()
     bbcon = BBCON()
-    bbcon.add_behavior(RunForward(bbcon, 1, []))
+    bbcon.add_behavior(RunForward(bbcon, 1, [], True))
     while True:
         bbcon.run_one_timestep()
 
