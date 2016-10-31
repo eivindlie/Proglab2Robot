@@ -61,7 +61,7 @@ class BBCON:
         for i in range(len(motor_recommendations)):
             self.motobs[i].update(motor_recommendations[i])
 
-        time.sleep(self._sleep_duration)
+        time.sleep(self._wait_duration)
 
         for sensob in self.sensobs:
             sensob.reset()
