@@ -1,5 +1,8 @@
 import time
 import sys
+from motob import Motob
+from motors import Motors
+from arbitrator import Arbitrator
 
 class BBCON:
     behaviors = []
@@ -9,6 +12,18 @@ class BBCON:
     arbitrator = None
 
     _wait_duration = 0.5 # The amount of time (in seconds) that the program sleeps each time tick
+
+    def __init__(self):
+        # Initialize arbitrator
+        self.arbitrator = Arbitrator()
+
+        # Initialize motobs (single object for both motors on the Zumo)
+        self.motobs.append(Motob(Motors()))
+
+        # Initialize sensobs
+        pass
+
+
 
     def add_behavior(self, behavior):
         if behavior not in self.behaviors:
