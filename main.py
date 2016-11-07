@@ -7,7 +7,7 @@ def main():
     wp.wiringPiSetupGpio()
     bbcon = BBCON()
 
-    run_forward = RunForward(bbcon, 1, [])
+    #run_forward = RunForward(bbcon, 1, [])
     #bbcon.add_behavior(run_forward)
     #bbcon.activate_behavior(run_forward)
 
