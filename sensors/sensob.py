@@ -10,6 +10,10 @@ class Sensob:
     def update(self):
         self.value = 0
 
+    # Return the sensob value
+    def get_value(self):
+        return self.value
+
     # Resets value of self and associated sensors
     def reset(self):
         self.value = 0
