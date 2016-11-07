@@ -82,8 +82,9 @@ class BBCON:
                 motob.stop()
             sys.exit(0)
 
-        for i in range(len(motor_recommendations)):
-            self.motobs[i].update(motor_recommendations[i])
+        for i in range(len(self.motobs)):
+            if len(motor_recommendations) > i:
+                self.motobs[i].update(motor_recommendations[i])
 
         time.sleep(self._wait_duration)
 
