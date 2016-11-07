@@ -4,7 +4,8 @@ from sensors.sensob import Sensob
 # Initialized with a single ultrasonic sensor
 class DistanceSensob(Sensob):
 
-    def __init__(self, threshold = 15):
+    def __init__(self, sensors, threshold = 15):
+        super().__init__(sensors)
         self.threshold = threshold
 
     def update(self):
