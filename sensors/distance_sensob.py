@@ -6,4 +6,4 @@ class DistanceSensob(Sensob):
 
     def update(self):
         self.value = self.sensors[0].get_value()
-        print(self.value)
+        print("distance", self.value)
