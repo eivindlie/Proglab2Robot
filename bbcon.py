@@ -29,7 +29,7 @@ class BBCON:
         self.motobs.append(Motob(Motors()))
 
         # Initialize sensors
-        self.sensors.append(Ultrasonic())
+        self.sensors.append(Ultrasonic(0.05))
         self.sensors.append(IRProximitySensor())
         self.sensors.append(ReflectanceSensors())
         self.sensobs.append(Camera())
