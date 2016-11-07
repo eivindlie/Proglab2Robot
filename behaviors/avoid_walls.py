@@ -19,9 +19,9 @@ class AvoidWalls(Behavior):
 
         if front and not left_side and not right_side:
             self.motor_recommendations.append((Command.B, 0.5))
-            match_degree = 1
+            self.match_degree = 1
         else:
-            match_degree = 0
+            self.match_degree = 0
 
 
 
