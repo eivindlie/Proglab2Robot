@@ -3,10 +3,11 @@ import time
 
 class Ultrasonic():
 
-    def __init__(self):
+    def __init__(self, timeout = 0.5):
         self.value = None
         self.trig_pin = 26
         self.echo_pin = 11
+        self.timeout = timeout
         self.setup()
 
     def setup(self):
@@ -39,7 +40,7 @@ class Ultrasonic():
         signaloff_start = time.time()
         signaloff = signaloff_start
         # signalet timer ut dersom det tar mer en 0.5 s, da annsees det som tapt og vi prover igjen
-        while read_val == 0 and signaloff - signaloff_start < 0.5:
+        while read_val == 0 and signaloff - signaloff_start < self.timeout:
             read_val = GPIO.input(self.echo_pin)
             signaloff = time.time()
 
