@@ -16,7 +16,7 @@ def main():
     #bbcon.add_behavior(avoid_walls)
     #bbcon.activate_behavior(avoid_walls)
 
-    stand_still = StandStill(bbcon, 1)
+    stand_still = StandStill(bbcon, 1, [])
     bbcon.add_behavior(stand_still)
     bbcon.activate_behavior(stand_still)
 
