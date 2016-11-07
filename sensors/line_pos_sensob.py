@@ -13,15 +13,30 @@ class LinePosSensob(Sensob):
         values = self.sensors[0].get_value()
         print(values)
 
-        pos = 0
+        avg = 0
+        sum = 0
+
+        for i in range(len(values)):
+            value = values[i]
+
+            if value > 0.05:
+                avg += value * i
+                sum += value
+
+        if sum == 0:
+            self.value = -1
+        else:
+            self.value = avg/sum
+
+        '''pos = 0
         count = 0
 
         for i in range(len(values)):
-            if values[i] < self.threshold:
+            if values[i] < self.threshold
                 pos += i
                 count += 1
         if count == 0:
             self.value = -1
             return
         self.value = pos/count
-        print("Line pos", self.value)
+        print("Line pos", self.value)'''

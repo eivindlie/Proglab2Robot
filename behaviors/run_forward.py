@@ -13,7 +13,7 @@ class RunForward(Behavior):
             self.start_time = time.time()
             return
 
-        if time.time() - self.start_time < 1:
+        if time.time() - self.start_time < 10:
             self.motor_recommendations = [(Command.F, 0.3)]
         else:
             self.request_halt = True
