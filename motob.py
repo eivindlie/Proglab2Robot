@@ -12,11 +12,11 @@ class Motob:
 
     def operationalize(self):
         # convert motor recomendation into motor settings, and send settings to motors
-        if(len(c)):
+        if(len(self.value)):
             c = self.value[0]
         else:
             c = self.value
-        
+
         if c == Command.F: # Forwards
             self.motors.forward(self.value[1]) # Second parameter in the command is speed
         elif c == Command.B: # Backwards
