@@ -35,7 +35,7 @@ class BBCON:
         self.sensors = {
             'ultrasonic': Ultrasonic(0.05),
             'IR': IRProximitySensor(),
-            'reflectance': ReflectanceSensors(True),
+            'reflectance': ReflectanceSensors(False, 600, 800),
             'camera': Camera()
         }
 
