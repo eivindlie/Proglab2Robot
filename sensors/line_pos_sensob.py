@@ -19,9 +19,9 @@ class LinePosSensob(Sensob):
         for i in range(len(values)):
             value = values[i]
 
-            if value > 0.05:
-                avg += value * i
-                sum += value
+            if value < 0.05:
+                avg += (1-value) * i
+                sum += (1-value)
 
         if sum == 0:
             self.value = -1
