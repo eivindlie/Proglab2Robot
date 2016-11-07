@@ -36,7 +36,7 @@ class BBCON:
             'ultrasonic': Ultrasonic(0.05),
             'IR': IRProximitySensor(),
             'reflectance': ReflectanceSensors(False, 600, 800),
-            'camera': Camera()
+            #'camera': Camera()
         }
 
 
