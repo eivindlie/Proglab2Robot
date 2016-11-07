@@ -6,6 +6,7 @@ from arbitrator import Arbitrator
 
 from sensors.distance_sensob import DistanceSensob
 from sensors.line_pos_sensob import LinePosSensob
+from sensors.proximity_sensob import ProximitySensob
 
 from sensors.ultrasonic import Ultrasonic
 from sensors.camera import Camera
@@ -15,8 +16,8 @@ from sensors.irproximity_sensor import IRProximitySensor
 class BBCON:
     behaviors = []
     active_behaviors = []
-    sensors = []
-    sensobs = []
+    sensors = {}
+    sensobs = {}
     motobs = []
     arbitrator = None
 
@@ -30,24 +31,28 @@ class BBCON:
         self.motobs.append(Motob(Motors()))
 
         # Initialize sensors
-        self.sensors.append(Ultrasonic(0.05))
-        self.sensors.append(IRProximitySensor())
-        self.sensors.append(ReflectanceSensors(True))
-        self.sensobs.append(Camera())
+
+        self.sensors = {
+            'ultrasonic': Ultrasonic(0.05),
+            'IR': IRProximitySensor(),
+            'reflectance': ReflectanceSensors(True),
+            'camera': Camera()
+        }
+
 
         # Initialize sensobs
-        self.sensobs.append(DistanceSensob([self.sensors[0]]))
-        self.sensobs.append(LinePosSensob([self.sensors[2]]))
+
+        self.sensobs = {
+            'distance': DistanceSensob([self.sensors['ultrasonic']]),
+            'line_pos': LinePosSensob([self.sensors['reflectance']]),
+            'proximity': ProximitySensob([self.sensors['IR']])
+        }
 
 
 
     def add_behavior(self, behavior):
         if behavior not in self.behaviors:
             self.behaviors.append(behavior)
-
-    def add_sensob(self, sensob):
-        if sensob not in self.sensobs:
-            self.sensobs.append(sensob)
 
     def activate_behavior(self, behavior):
         if behavior not in self.active_behaviors:
@@ -60,10 +65,10 @@ class BBCON:
             behavior.active = False
 
     def run_one_timestep(self):
-        for sensor in self.sensors:
+        for sensor in self.sensors.values():
             sensor.update()
 
-        for sensob in self.sensobs:
+        for sensob in self.sensobs.values():
             sensob.update()
 
         for behavior in self.active_behaviors:
@@ -82,5 +87,5 @@ class BBCON:
 
         time.sleep(self._wait_duration)
 
-        for sensob in self.sensobs:
+        for sensob in self.sensobs.values():
             sensob.reset()
