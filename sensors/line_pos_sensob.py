@@ -7,16 +7,17 @@ from sensors.sensob import Sensob
 # If no line is detected, the value is set to -1
 class LinePosSensob(Sensob):
 
-    threshold = 0.2 # Threshold for a reading to be considered a line
+    threshold = 0.75 # Threshold for a reading to be considered a line
 
     def update(self):
         values = self.sensors[0].get_value()
+        print(values)
 
         pos = 0
         count = 0
 
         for i in range(len(values)):
-            if values[i] > self.threshold:
+            if values[i] < self.threshold:
                 pos += i
                 count += 1
         if count == 0:
