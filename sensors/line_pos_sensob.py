@@ -28,6 +28,8 @@ class LinePosSensob(Sensob):
         else:
             self.value = avg/sum
 
+        print("Line pos", self.value)
+
         '''pos = 0
         count = 0
 
