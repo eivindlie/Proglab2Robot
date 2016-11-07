@@ -12,7 +12,7 @@ class Motob:
 
     def operationalize(self):
         # convert motor recomendation into motor settings, and send settings to motors
-        if(len(self.value)):
+        if type(self.value) is tuple or type(self.value) is list:
             c = self.value[0]
         else:
             c = self.value
