@@ -23,3 +23,4 @@ class LinePosSensob(Sensob):
             self.value = -1
             return
         self.value = pos/count
+        print("Line pos", self.value)

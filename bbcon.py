@@ -5,6 +5,7 @@ from motors import Motors
 from arbitrator import Arbitrator
 
 from sensors.distance_sensob import DistanceSensob
+from sensors.line_pos_sensob import LinePosSensob
 
 from sensors.ultrasonic import Ultrasonic
 from sensors.camera import Camera
@@ -36,6 +37,7 @@ class BBCON:
 
         # Initialize sensobs
         self.sensobs.append(DistanceSensob([self.sensors[0]]))
+        self.sensobs.append(LinePosSensob([self.sensors[2]]))
 
 
 
