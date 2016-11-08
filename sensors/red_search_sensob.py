@@ -24,7 +24,7 @@ class RedSearchSensob(Sensob):
         print("dtime: ", time.time() - self.last_time)
         self.last_time = time.time()
 
-        if num < 0.05 * w * h: # Less than 5 % of the pixels are considered red
+        if num < 0.01 * w * h: # Less than 1 % of the pixels are considered red
             print("Not enough red")
             return -1
 
