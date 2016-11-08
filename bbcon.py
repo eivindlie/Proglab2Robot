@@ -7,6 +7,7 @@ from arbitrator import Arbitrator
 from sensors.distance_sensob import DistanceSensob
 from sensors.line_pos_sensob import LinePosSensob
 from sensors.proximity_sensob import ProximitySensob
+from sensors.red_search_sensob import RedSearchSensob
 
 from sensors.ultrasonic import Ultrasonic
 from sensors.camera import Camera
@@ -36,7 +37,7 @@ class BBCON:
             'ultrasonic': Ultrasonic(0.05),
             'IR': IRProximitySensor(),
             'reflectance': ReflectanceSensors(False, 0, 900),
-            'camera': Camera()
+            'camera': Camera(),
         }
 
 
@@ -45,7 +46,8 @@ class BBCON:
         self.sensobs = {
             'distance': DistanceSensob([self.sensors['ultrasonic']]),
             'line_pos': LinePosSensob([self.sensors['reflectance']]),
-            'proximity': ProximitySensob([self.sensors['IR']])
+            'proximity': ProximitySensob([self.sensors['IR']]),
+            'red_search': RedSearchSensob([self.sensors['camera']]),
         }
 
 
