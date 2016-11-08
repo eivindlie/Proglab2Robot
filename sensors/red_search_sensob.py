@@ -14,11 +14,10 @@ class RedSearchSensob(Sensob):
         sum = 0
         num = 0
 
-        print(image)
-
         for y in range(h):
             for x in range(w):
                 r, g, b = image.getpixel((x, y))
+                print(r, g, b)
                 if r > 200 and g < 75 and b < 75:
                     sum += x
                     num += 1
