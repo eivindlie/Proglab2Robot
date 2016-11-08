@@ -18,7 +18,7 @@ class RedSearchSensob(Sensob):
             for x in range(w):
                 r, g, b = image.getpixel((x, y))
                 print(r, g, b)
-                if r > 200 and g < 75 and b < 75:
+                if r > 220 and g < 200 and b < 200:
                     sum += x
                     num += 1
 
