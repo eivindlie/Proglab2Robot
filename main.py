@@ -5,8 +5,11 @@ from behaviors.avoid_walls import AvoidWalls
 from behaviors.stand_still import StandStill
 from behaviors.line_follower import LineFollower
 
+from sensors.zumo_button import ZumoButton
+
 def main():
     wp.wiringPiSetupGpio()
+    ZumoButton().wait_for_press()
     bbcon = BBCON()
 
     #run_forward = RunForward(bbcon, 1, [])
