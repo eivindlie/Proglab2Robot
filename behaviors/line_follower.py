@@ -22,9 +22,9 @@ class LineFollower(Behavior):
 
         self.match_degree = pid / ((self.kp + self.kd) * 0.5)
         print(pid)
-        if pid < -1.0:
+        if pid < -0.5:
             self.motor_recommendations = [(Command.L, self.SPEED)]
-        elif pid > 1.0:
+        elif pid > 0.5:
             self.motor_recommendations = [(Command.R, self.SPEED)]
         else:
             self.match_degree = 0.5
