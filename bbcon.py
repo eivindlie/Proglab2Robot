@@ -75,6 +75,10 @@ class BBCON:
         for sensob in self.sensobs.values():
             sensob.update()
 
+        for behavior in self.behaviors:
+            behavior.consider_activation()
+            behavior.consider_deactivation()
+
         for behavior in self.active_behaviors:
             behavior.update()
 
