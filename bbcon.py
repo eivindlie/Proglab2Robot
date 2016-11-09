@@ -75,7 +75,7 @@ class BBCON:
             behavior.active = False
 
     def activate_sensor(self, sensor):
-        if sensor not in self.active_sensors
+        if sensor not in self.active_sensors:
             self.active_sensors.append(sensor)
 
     def deactivate_sensor(self, sensor):
