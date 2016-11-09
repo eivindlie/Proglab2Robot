@@ -11,7 +11,6 @@ class LinePosSensob(Sensob):
 
     def update(self):
         values = self.sensors[0].get_value()
-        print(values)
 
         '''avg = 0
         sum = 0
@@ -40,5 +39,4 @@ class LinePosSensob(Sensob):
         if count == 0:
             self.value = -1
             return
-        self.value = pos/count
-        print("Line pos", self.value)
+        self.value = (pos/count)/(len(values) - 1)
