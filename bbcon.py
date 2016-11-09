@@ -22,6 +22,8 @@ class BBCON:
     motobs = []
     arbitrator = None
 
+    line_finished = False
+
     _wait_duration = 0.5 # The amount of time (in seconds) that the program sleeps each time tick
 
     def __init__(self):
@@ -37,7 +39,7 @@ class BBCON:
             'ultrasonic': Ultrasonic(0.05),
             'IR': IRProximitySensor(),
             'reflectance': ReflectanceSensors(False, 0, 900),
-            #'camera': Camera(),
+            'camera': Camera(),
         }
 
 
@@ -47,7 +49,7 @@ class BBCON:
             'distance': DistanceSensob([self.sensors['ultrasonic']]),
             'line_pos': LinePosSensob([self.sensors['reflectance']]),
             'proximity': ProximitySensob([self.sensors['IR']]),
-            #'red_search': RedSearchSensob([self.sensors['camera']]),
+            'red_search': RedSearchSensob([self.sensors['camera']]),
         }
 
 

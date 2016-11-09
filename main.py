@@ -4,6 +4,7 @@ from behaviors.run_forward import RunForward
 from behaviors.avoid_walls import AvoidWalls
 from behaviors.stand_still import StandStill
 from behaviors.line_follower import LineFollower
+from behaviors.find_red import FindRed
 
 from sensors.zumo_button import ZumoButton
 
@@ -27,6 +28,9 @@ def main():
     line_follower = LineFollower(bbcon, 1, [bbcon.sensobs['line_pos']])
     bbcon.add_behavior(line_follower)
     bbcon.activate_behavior(line_follower)
+
+    find_red = FindRed(bbcon, 1, [bbcon.sensobs['red_search']])
+    bbcon.add_behavior(find_red)
 
     while True:
         bbcon.run_one_timestep()

@@ -9,12 +9,15 @@ class LineFollower(Behavior):
     kp = 0.5
     kd = 4
 
+    def consider_deactivation(self):
+        if self.bbcon.line_finished:
+            self.bbcon.deactivate_behavior(self)
+
     def sense_and_act(self):
         value = self.sensobs[0].get_value()
 
         if value == -1:
-            self.match_degree = 0
-            self.motor_recommendations = [Command.S]
+            self.bbcon.line_finished = True
             return
 
         error = value - 0.5
