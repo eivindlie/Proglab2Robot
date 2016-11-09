@@ -22,7 +22,9 @@ class AvoidWalls(Behavior):
         front = distance < distance_threshold
 
         if front and not left_side and not right_side:
-            self.motor_recommendations[0] = (Command.B, 0.5)
+            #self.motor_recommendations[0] = (Command.B, 0.5)
+            self.request_halt = True
+            self.motor_recommendations = [Command.S]
             self.match_degree = 1
         elif left_side:
             self.motor_recommendations[0] = (Command.R, 0.3)
