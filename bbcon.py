@@ -37,7 +37,7 @@ class BBCON:
             'ultrasonic': Ultrasonic(0.05),
             'IR': IRProximitySensor(),
             'reflectance': ReflectanceSensors(False, 0, 900),
-            'camera': Camera(),
+            #'camera': Camera(),
         }
 
 
@@ -47,7 +47,7 @@ class BBCON:
             'distance': DistanceSensob([self.sensors['ultrasonic']]),
             'line_pos': LinePosSensob([self.sensors['reflectance']]),
             'proximity': ProximitySensob([self.sensors['IR']]),
-            'red_search': RedSearchSensob([self.sensors['camera']]),
+            #'red_search': RedSearchSensob([self.sensors['camera']]),
         }
 
 
