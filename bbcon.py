@@ -18,7 +18,9 @@ class BBCON:
     behaviors = []
     active_behaviors = []
     sensors = {}
+    active_sensors = []
     sensobs = {}
+    active_sensobs = []
     motobs = []
     arbitrator = None
 
@@ -42,6 +44,8 @@ class BBCON:
             'camera': Camera(),
         }
 
+        self.active_sensors = [self.sensors['ultrasonic'], self.sensors['IR'], self.sensors['reflectance']]
+
 
         # Initialize sensobs
 
@@ -51,6 +55,8 @@ class BBCON:
             'proximity': ProximitySensob([self.sensors['IR']]),
             'red_search': RedSearchSensob([self.sensors['camera']]),
         }
+
+        self.active_sensobs = [self.sensobs['distance'], self.sensobs['line_pos'], self.sensobs['proximity']]
 
 
 
@@ -68,11 +74,27 @@ class BBCON:
             self.active_behaviors.remove(behavior)
             behavior.active = False
 
+    def activate_sensor(self, sensor):
+        if sensor not in self.active_sensors
+            self.active_sensors.append(sensor)
+
+    def deactivate_sensor(self, sensor):
+        if sensor in self.active_sensors:
+            self.active_sensors.remove(sensor)
+
+    def activate_sensob(self, sensob):
+        if sensob not in self.active_sensobs:
+            self.active_sensobs.append(sensob)
+
+    def deactivate_sensob(self, sensob):
+        if sensob in self.active_sensobs:
+            self.active_sensobs.remove(sensob)
+
     def run_one_timestep(self):
-        for sensor in self.sensors.values():
+        for sensor in self.active_sensors:
             sensor.update()
 
-        for sensob in self.sensobs.values():
+        for sensob in self.active_sensobs:
             sensob.update()
 
         for behavior in self.behaviors:

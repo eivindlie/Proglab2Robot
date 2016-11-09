@@ -37,4 +37,4 @@ class LineFollower(Behavior):
             self.motor_recommendations = [(Command.R, self.SPEED)]
         else:
             self.match_degree = 0.5
-            self.motor_recommendations = [(Command.F, 0.3)]
+            self.motor_recommendations = [(Command.F, 0.2)]
