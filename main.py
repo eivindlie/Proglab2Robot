@@ -21,7 +21,7 @@ def main():
     #bbcon.add_behavior(stand_still)
     #bbcon.activate_behavior(stand_still)
 
-    line_follower = LineFollower(bbcon, 1, [])
+    line_follower = LineFollower(bbcon, 1, [bbcon.sensobs['line_pos']])
     bbcon.add_behavior(line_follower)
     bbcon.activate_behavior(line_follower)
 
