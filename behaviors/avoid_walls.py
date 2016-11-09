@@ -33,7 +33,5 @@ class AvoidWalls(Behavior):
             self.motor_recommendations[0] = (Command.L, 0.3)
             self.match_degree = 1
         else:
-            self.motor_recommendations[0] = (Command.S)
             self.match_degree = 0
-
-
+            self.motor_recommendations[0] = (Command.S)
