@@ -23,5 +23,6 @@ class FindRed(Behavior):
                 self.motor_recommendations = [(Command.R, 0.3)]
                 self.match_degree = 0.8
             else:
+                print("Red ahead!")
                 self.motor_recommendations = [(Command.F, 0.4)]
                 self.match_degree = 0.8
