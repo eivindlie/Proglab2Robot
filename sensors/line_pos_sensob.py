@@ -34,7 +34,7 @@ class LinePosSensob(Sensob):
         count = 0
 
         for i in range(len(values)):
-            if values[i] < self.threshold
+            if values[i] < self.threshold:
                 pos += i
                 count += 1
         if count == 0:
