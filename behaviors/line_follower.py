@@ -6,6 +6,9 @@ class LineFollower(Behavior):
     last_value = .5
     SPEED = 0.35
 
+    kp = 0.5
+    kd = 4
+
     def sense_and_act(self):
         value = self.sensobs[0].get_value()
 
@@ -15,9 +18,9 @@ class LineFollower(Behavior):
             return
 
         error = value - 0.5
-        pid = 0.5 * error + 6 * (error - self.last_error)
+        pid = self.kp * error + self.kd * (error - self.last_error)
 
-        self.match_degree = pid / 3.25
+        self.match_degree = pid / ((self.kp + self.kd) * 0.5)
         print(pid)
         if pid < -1.0:
             self.motor_recommendations = [(Command.L, self.SPEED)]
