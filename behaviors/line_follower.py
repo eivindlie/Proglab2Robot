@@ -4,7 +4,7 @@ from motob import Command
 class LineFollower(Behavior):
     last_error = 0
     last_value = .5
-    SPEED = 0.25
+    SPEED = 0.5
 
     def sense_and_act(self):
         value = self.sensobs[0].get_value()
