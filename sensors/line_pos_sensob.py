@@ -7,13 +7,13 @@ from sensors.sensob import Sensob
 # If no line is detected, the value is set to -1
 class LinePosSensob(Sensob):
 
-    threshold = 0.75 # Threshold for a reading to be considered a line
+    threshold = 0.30 # Threshold for a reading to be considered a line
 
     def update(self):
         values = self.sensors[0].get_value()
         print(values)
 
-        avg = 0
+        '''avg = 0
         sum = 0
 
         for i in range(len(values)):
@@ -28,9 +28,9 @@ class LinePosSensob(Sensob):
         else:
             self.value = avg/sum
 
-        print("Line pos", self.value)
+        print("Line pos", self.value)'''
 
-        '''pos = 0
+        pos = 0
         count = 0
 
         for i in range(len(values)):
@@ -41,4 +41,4 @@ class LinePosSensob(Sensob):
             self.value = -1
             return
         self.value = pos/count
-        print("Line pos", self.value)'''
+        print("Line pos", self.value)
