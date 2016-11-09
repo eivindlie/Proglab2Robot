@@ -24,6 +24,7 @@ class LineFollower(Behavior):
 
         if time.time() - self.start_time > 1 and value == -1:
             self.bbcon.line_finished = True
+            self.bbcon.deactivate_behavior(self)
             return
 
         error = value - 0.5
