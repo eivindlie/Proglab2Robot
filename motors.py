@@ -56,8 +56,8 @@ class Motors():
             self.set_right_dir(0)
             self.set_right_speed(s)
         else:
-            self.set_left_speed(150)
-            self.set_right_speed(450)
+            self.set_left_speed(self.dc - s)
+            self.set_right_speed(self.dc + s)
         self.persist(dur)
 
     def right(self, speed=0.25, dur=None):
@@ -68,8 +68,8 @@ class Motors():
             self.set_right_dir(1)
             self.set_right_speed(s)
         else:
-            self.set_left_speed(450)
-            self.set_right_speed(150)
+            self.set_left_speed(self.dc + s)
+            self.set_right_speed(self.dc -s)
         self.persist(dur)
 
 
