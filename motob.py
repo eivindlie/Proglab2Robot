@@ -22,8 +22,10 @@ class Motob:
         elif c == Command.B: # Backwards
             self.motors.backward(self.value[1]) # Second parameter in the command is speed
         elif c == Command.L: # Turn left
+            self.motors.stop()
             self.motors.left(self.value[1])
         elif c == Command.R: # Turn right
+            self.motors.stop()
             self.motors.right(self.value[1])
         elif c == Command.S:
             self.motors.stop()
