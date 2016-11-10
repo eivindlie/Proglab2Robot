@@ -5,7 +5,7 @@ import time
 class LineFollower(Behavior):
     last_error = 0
     last_value = .5
-    SPEED = 0.40
+    SPEED = 0.30
 
     kp = 0.5
     kd = 5
@@ -41,4 +41,4 @@ class LineFollower(Behavior):
             self.motor_recommendations = [(Command.R, self.SPEED)]
         else:
             self.match_degree = 0.5
-            self.motor_recommendations = [(Command.F, 0.2)]
+            self.motor_recommendations = [(Command.F, 0.4)]
