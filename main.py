@@ -28,7 +28,7 @@ def main():
     find_red = FindRed(bbcon, 1, [bbcon.sensobs['red_search']])
     bbcon.add_behavior(find_red)
 
-    avoid_walls = AvoidWalls(bbcon, 10, [bbcon.sensobs['distance'], bbcon.sensobs['proximity']])
+    avoid_walls = AvoidWalls(bbcon, 100, [bbcon.sensobs['distance'], bbcon.sensobs['proximity']])
     bbcon.add_behavior(avoid_walls)
     bbcon.activate_behavior(avoid_walls)
 
