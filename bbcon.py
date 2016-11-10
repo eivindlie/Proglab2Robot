@@ -58,6 +58,8 @@ class BBCON:
 
         self.active_sensobs = [self.sensobs['distance'], self.sensobs['line_pos'], self.sensobs['proximity']]
 
+        time.sleep(1)
+
 
 
     def add_behavior(self, behavior):
