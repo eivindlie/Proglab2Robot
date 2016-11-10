@@ -21,6 +21,9 @@ class LineFollower(Behavior):
 
     def sense_and_act(self):
         if time.time() - self.start_time < 1:
+            return
+
+        elif time.time() - self.start_time < 1.5:
             self.match_degree = 0.5
             self.motor_recommendations = [(Command.F, 0.2)]
             return
