@@ -21,7 +21,7 @@ class FindRed(Behavior):
             if value < 0.4:
                 self.motor_recommendations = [(Command.L, 0.3)]
                 self.match_degree = 0.8
-            elif value > 0.4:
+            elif value > 0.6:
                 self.motor_recommendations = [(Command.R, 0.3)]
                 self.match_degree = 0.8
             else:

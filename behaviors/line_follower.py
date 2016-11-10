@@ -8,7 +8,7 @@ class LineFollower(Behavior):
     SPEED = 0.40
 
     kp = 0.5
-    kd = 4
+    kd = 5
 
     def __init__(self, bbcon, priority, sensobs):
         super().__init__(bbcon, priority, sensobs)
