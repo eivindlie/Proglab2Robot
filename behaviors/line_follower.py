@@ -5,7 +5,7 @@ import time
 class LineFollower(Behavior):
     last_error = 0
     last_value = .5
-    SPEED = 0.35
+    SPEED = 0.40
 
     kp = 0.5
     kd = 4
