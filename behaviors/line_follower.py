@@ -20,9 +20,12 @@ class LineFollower(Behavior):
             self.bbcon.deactivate_behavior(self)
 
     def sense_and_act(self):
+        if time.time() - self.start_time < 1:
+            return
+
         value = self.sensobs[0].get_value()
 
-        if time.time() - self.start_time > 1 and value == -1:
+        if value == -1:
             self.bbcon.line_finished = True
             self.bbcon.deactivate_behavior(self)
             return
