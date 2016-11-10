@@ -8,7 +8,7 @@ class LineFollower(Behavior):
     SPEED = 0.30
 
     kp = 0.5
-    kd = 4
+    kd = 5
 
     def __init__(self, bbcon, priority, sensobs):
         super().__init__(bbcon, priority, sensobs)
@@ -41,4 +41,4 @@ class LineFollower(Behavior):
             self.motor_recommendations = [(Command.R, self.SPEED)]
         else:
             self.match_degree = 0.5
-            self.motor_recommendations = [(Command.F, 0.4)]
+            self.motor_recommendations = [(Command.F, 0.2)]
