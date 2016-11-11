@@ -27,8 +27,9 @@ class LineFollower(Behavior):
         value = self.sensobs[0].get_value()
 
         if value == -1:
-            self.bbcon.line_finished = True
-            self.bbcon.deactivate_behavior(self)
+            #self.bbcon.line_finished = True
+            #self.bbcon.deactivate_behavior(self)
+            self.match_degree = 0
             return
 
         error = value - 0.5
@@ -37,10 +38,10 @@ class LineFollower(Behavior):
 
         self.match_degree = abs(pid) / ((self.kp + self.kd) * 0.5)
 
-        if pid < -0.5:
+        if pid < -0.7:
             self.motor_recommendations = [(Command.L, self.SPEED)]
-        elif pid > 0.5:
+        elif pid > 0.7:
             self.motor_recommendations = [(Command.R, self.SPEED)]
         else:
-            self.match_degree = 0.5
+            self.match_degree = 1
             self.motor_recommendations = [(Command.F, 0.2)]
