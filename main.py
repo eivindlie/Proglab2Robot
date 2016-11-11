@@ -22,7 +22,7 @@ def signal_handler(signal, frame):
 
 def main():
     wp.wiringPiSetupGpio()
-    #ZumoButton().wait_for_press()
+    ZumoButton().wait_for_press()
     global bbcon
     bbcon = BBCON()
     signal.signal(signal.SIGINT, signal_handler)
