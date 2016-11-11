@@ -49,7 +49,7 @@ class Motors():
         self.persist(dur)
 
     def left(self, speed=0.25, dur=None):
-        s = int(self.max * speed)
+        s = int(self.max * speed/2)
         if self.dc == 0:
             self.set_left_dir(1)
             self.set_left_speed(s)
@@ -61,7 +61,7 @@ class Motors():
         self.persist(dur)
 
     def right(self, speed=0.25, dur=None):
-        s = int(self.max * speed)
+        s = int(self.max * speed/2)
         if self.dc == 0:
             self.set_left_dir(0)
             self.set_left_speed(s)

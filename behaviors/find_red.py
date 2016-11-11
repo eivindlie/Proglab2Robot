@@ -15,7 +15,7 @@ class FindRed(Behavior):
 
         if value == -1:
             print("No red")
-            self.motor_recommendations = [(Command.R, 0.4)]
+            self.motor_recommendations = [(Command.R, 0.3)]
             self.match_degree = 0.7
         else:
             print("Find red value: ", value)
