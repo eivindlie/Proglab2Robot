@@ -13,9 +13,9 @@ def main():
     #ZumoButton().wait_for_press()
     bbcon = BBCON()
 
-    #run_forward = RunForward(bbcon, 1, [])
-    #bbcon.add_behavior(run_forward)
-    #bbcon.activate_behavior(run_forward)
+    run_forward = RunForward(bbcon, 2, [])
+    bbcon.add_behavior(run_forward)
+    bbcon.activate_behavior(run_forward)
 
     #stand_still = StandStill(bbcon, 1, [])
     #bbcon.add_behavior(stand_still)
@@ -25,14 +25,12 @@ def main():
     bbcon.add_behavior(line_follower)
     bbcon.activate_behavior(line_follower)
 
-
-    find_red = FindRed(bbcon, 2, [bbcon.sensobs['red_search'], bbcon.sensobs['distance']])
+    find_red = FindRed(bbcon, 3, [bbcon.sensobs['red_search'], bbcon.sensobs['distance']])
     bbcon.add_behavior(find_red)
 
-
-    #avoid_walls = AvoidWalls(bbcon, 10, [bbcon.sensobs['distance'], bbcon.sensobs['proximity']])
-    #bbcon.add_behavior(avoid_walls)
-    #bbcon.activate_behavior(avoid_walls)
+    avoid_walls = AvoidWalls(bbcon, 10, [bbcon.sensobs['distance'], bbcon.sensobs['proximity']])
+    bbcon.add_behavior(avoid_walls)
+    bbcon.activate_behavior(avoid_walls)
 
     while True:
         bbcon.run_one_timestep()
