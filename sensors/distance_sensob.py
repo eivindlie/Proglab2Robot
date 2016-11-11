@@ -10,6 +10,7 @@ class DistanceSensob(Sensob):
 
     def update(self):
         self.value = self.sensors[0].get_value()
+        print("Distance:", self.value)
 
     def wall_detected(self):
         return self.value < self.threshold
