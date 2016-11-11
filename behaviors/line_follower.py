@@ -1,6 +1,7 @@
 from behaviors.behavior import Behavior
 from motob import Command
 
+
 class LineFollower(Behavior):
     last_error = 0
     last_value = .5
@@ -12,7 +13,6 @@ class LineFollower(Behavior):
 
     def __init__(self, bbcon, priority, sensobs):
         super().__init__(bbcon, priority, sensobs)
-
 
     def consider_deactivation(self):
         if self.bbcon.line_finished:
