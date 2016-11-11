@@ -41,9 +41,14 @@ class LineFollower(Behavior):
         #self.match_degree = abs(pid) / ((self.kp + self.kd) * 0.5)
         self.match_degree = 1
 
-        if pid < -0.5:
-            self.motor_recommendations = [(Command.L, self.SPEED)]
-        elif pid > 0.5:
-            self.motor_recommendations = [(Command.R, self.SPEED)]
-        else:
+        if abs(pid) < 0.2:
             self.motor_recommendations = [(Command.F, self.SPEED_FORWARD)]
+        else:
+            self.motor_recommendations = [(Command.R, self.SPEED * pid)]
+
+        '''if pid < -0.5:
+            self.motor_recommendations = [(Command.L, self.SPEED * pid)]
+        elif pid > 0.5:
+            self.motor_recommendations = [(Command.R, self.SPEED * pid)]
+        else:
+            self.motor_recommendations = [(Command.F, self.SPEED_FORWARD)]'''
