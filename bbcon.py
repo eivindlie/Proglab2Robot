@@ -26,7 +26,7 @@ class BBCON:
 
     line_finished = False
 
-    _wait_duration = 0.1 #  The amount of time (in seconds) that the program sleeps each time tick
+    _wait_duration = 0.15 #  The amount of time (in seconds) that the program sleeps each time tick
 
     def __init__(self):
         # Initialize arbitrator
