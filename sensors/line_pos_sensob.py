@@ -31,7 +31,7 @@ class LinePosSensob(Sensob):
 
         pos = 0
         count = 0
-
+        print("Raw reflectance", values)
         for i in range(len(values)):
             if values[i] < self.threshold:
                 pos += i
