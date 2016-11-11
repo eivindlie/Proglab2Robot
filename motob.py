@@ -25,6 +25,10 @@ class Motob:
             self.motors.left(self.value[1])
         elif c == Command.R: # Turn right
             self.motors.right(self.value[1])
+        elif c == Command.TL:
+            self.motors.turn_left(self.value[1])
+        elif c== Command.TR:
+            self.motors.turn_right(self.value[1])
         elif c == Command.S:
             self.motors.stop()
 
@@ -37,3 +41,5 @@ class Command(Enum):
     L = 2 # Turn left
     R = 3 # Turn right
     S = 4 # Stand still
+    TL = 5
+    TR = 6
