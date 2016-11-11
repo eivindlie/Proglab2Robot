@@ -41,9 +41,9 @@ class LineFollower(Behavior):
         self.match_degree = 1
         print("Match degree LF: ", self.match_degree)
 
-        if value < 0.2:
+        if value < 0.4:
             self.motor_recommendations = [(Command.L, self.SPEED)]
-        elif value > 0.8:
+        elif value > 0.6:
             self.motor_recommendations = [(Command.R, self.SPEED)]
         else:
             self.motor_recommendations = [(Command.F, self.SPEED)]
