@@ -10,7 +10,7 @@ from sensors.zumo_button import ZumoButton
 
 def main():
     wp.wiringPiSetupGpio()
-    ZumoButton().wait_for_press()
+    #ZumoButton().wait_for_press()
     bbcon = BBCON()
 
     #run_forward = RunForward(bbcon, 1, [])
