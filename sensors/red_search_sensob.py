@@ -30,3 +30,7 @@ class RedSearchSensob(Sensob):
 
         self.value = (sum / num) / w
         print("Red val: ", self.value)
+
+    def reset(self):
+        super().reset()
+        self.value = -1
