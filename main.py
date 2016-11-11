@@ -21,16 +21,17 @@ def main():
     #bbcon.add_behavior(stand_still)
     #bbcon.activate_behavior(stand_still)
 
-    line_follower = LineFollower(bbcon, 1, [bbcon.sensobs['line_pos']])
-    bbcon.add_behavior(line_follower)
-    bbcon.activate_behavior(line_follower)
+    #line_follower = LineFollower(bbcon, 1, [bbcon.sensobs['line_pos']])
+    #bbcon.add_behavior(line_follower)
+    #bbcon.activate_behavior(line_follower)
 
     find_red = FindRed(bbcon, 1, [bbcon.sensobs['red_search'], bbcon.sensobs['distance']])
     bbcon.add_behavior(find_red)
+    bbcon.activate_behavior(find_red)
 
-    avoid_walls = AvoidWalls(bbcon, 100, [bbcon.sensobs['distance'], bbcon.sensobs['proximity']])
-    bbcon.add_behavior(avoid_walls)
-    bbcon.activate_behavior(avoid_walls)
+    #avoid_walls = AvoidWalls(bbcon, 100, [bbcon.sensobs['distance'], bbcon.sensobs['proximity']])
+    #bbcon.add_behavior(avoid_walls)
+    #bbcon.activate_behavior(avoid_walls)
 
     while True:
         bbcon.run_one_timestep()
