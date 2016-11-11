@@ -25,6 +25,7 @@ class LineFollower(Behavior):
             self.motor_recommendations = [(Command.F, 0.2)]
 
         value = self.sensobs[0].get_value()
+        print("linepos: ", value)
 
         if value == -1:
             #self.bbcon.line_finished = True
