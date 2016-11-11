@@ -15,7 +15,7 @@ class FindRed(Behavior):
             else:
                 self.act_count += 1
 
-            if self.act_count > 2:
+            if self.act_count > 3:
                 self.bbcon.deactivate_behavior(self)
                 self.bbcon.deactivate_sensob(self.bbcon.sensobs['red_search'])
                 self.bbcon.deactivate_sensor(self.bbcon.sensors['camera'])
@@ -28,7 +28,7 @@ class FindRed(Behavior):
                 self.act_count = 1
             else:
                 self.act_count += 1
-            if self.act_count > 7:
+            if self.act_count > 4:
                 self.bbcon.activate_behavior(self)
                 self.bbcon.activate_sensob(self.bbcon.sensobs['red_search'])
                 self.bbcon.activate_sensor(self.bbcon.sensors['camera'])
