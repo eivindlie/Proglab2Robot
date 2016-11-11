@@ -33,6 +33,7 @@ class FindRed(Behavior):
                 self.bbcon.activate_sensob(self.bbcon.sensobs['red_search'])
                 self.bbcon.activate_sensor(self.bbcon.sensors['camera'])
 
+
     def sense_and_act(self):
         value = self.sensobs[0].get_value()
         distance = self.sensobs[1].get_value()
