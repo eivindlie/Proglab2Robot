@@ -17,7 +17,7 @@ class RedSearchSensob(Sensob):
         for y in range(h):
             for x in range(w):
                 r, g, b = image.getpixel((x, y))
-                if r > 1.8*g and r > 1.8*b:
+                if r > 3*g and r > 3*b:
                     sum += x
                     num += 1
 
