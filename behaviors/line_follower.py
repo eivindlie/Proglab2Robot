@@ -9,8 +9,8 @@ class LineFollower(Behavior):
     SPEED_FORWARD = 0.4
     first_tick = True
 
-    kp = 0.7
-    kd = 4
+    kp = 0.85
+    kd = 5
 
     def __init__(self, bbcon, priority, sensobs):
         super().__init__(bbcon, priority, sensobs)
@@ -26,6 +26,7 @@ class LineFollower(Behavior):
             self.motor_recommendations = [(Command.F, 0.2)]
 
         value = self.sensobs[0].get_value()
+        print("Line pos:", value)
 
         if value == -1:
             #self.bbcon.line_finished = True
