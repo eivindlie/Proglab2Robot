@@ -18,8 +18,9 @@ class FindRed(Behavior):
             self.motor_recommendations = [(Command.R, 0.4)]
             self.match_degree = 0.7
         else:
-            print(value)
+            print("Find red value: ", value)
             if distance < 10:
+                print("Finished")
                 self.request_halt = True
             if value < 0.4:
                 self.motor_recommendations = [(Command.L, 0.3)]

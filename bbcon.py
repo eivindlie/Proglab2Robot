@@ -93,6 +93,7 @@ class BBCON:
             self.active_sensobs.remove(sensob)
 
     def run_one_timestep(self):
+        print("Timestep")
         for sensor in self.active_sensors:
             sensor.update()
 
