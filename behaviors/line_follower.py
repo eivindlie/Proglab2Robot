@@ -9,8 +9,8 @@ class LineFollower(Behavior):
     SPEED_FORWARD = 0.4
     first_tick = True
 
-    kp = 1.5
-    kd = 1.8
+    kp = 1.6
+    kd = 2.0
 
     def __init__(self, bbcon, priority, sensobs):
         super().__init__(bbcon, priority, sensobs)
