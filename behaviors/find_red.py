@@ -11,6 +11,7 @@ class FindRed(Behavior):
 
     def sense_and_act(self):
         value = self.sensobs[0].get_value()
+        distance = self.sensobs[1].get_value()
 
         if value == -1:
             print("No red")
@@ -18,6 +19,8 @@ class FindRed(Behavior):
             self.match_degree = 0.7
         else:
             print(value)
+            if distance < 10:
+                self.request_halt = True
             if value < 0.4:
                 self.motor_recommendations = [(Command.L, 0.3)]
                 self.match_degree = 0.8
