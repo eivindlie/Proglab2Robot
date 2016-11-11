@@ -5,7 +5,7 @@ from motob import Command
 class LineFollower(Behavior):
     last_error = 0
     last_value = .5
-    SPEED = 0.6
+    SPEED = 0.8
     SPEED_FORWARD = 0.4
     first_tick = True
 
