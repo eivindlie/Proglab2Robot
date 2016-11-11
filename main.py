@@ -11,19 +11,21 @@ from sensors.zumo_button import ZumoButton
 import signal
 import sys
 
-def signal_handler(signal, frame, bbcon):
+bbcon = None
+
+def signal_handler(signal, frame):
     print ('You pressed Ctrl+C!')
     bbcon.motobs[0].stop()
 
     sys.exit(0)
 
 
-
 def main():
     wp.wiringPiSetupGpio()
     #ZumoButton().wait_for_press()
+    global bbcon
     bbcon = BBCON()
-    signal.signal(signal.SIGINT, signal_handler, bbcon)
+    signal.signal(signal.SIGINT, signal_handler)
 
     run_forward = RunForward(bbcon, 2, [])
     bbcon.add_behavior(run_forward)
