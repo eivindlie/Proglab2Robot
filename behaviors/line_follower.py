@@ -23,7 +23,8 @@ class LineFollower(Behavior):
         if self.first_tick:
             self.first_tick = False
             self.match_degree = 1
-            self.motor_recommendations = [(Command.F, 0.2)]
+            self.motor_recommendations = [(Command.F, self.SPEED_FORWARD)]
+            return
 
         value = self.sensobs[0].get_value()
         print("Line pos:", value)
@@ -46,7 +47,7 @@ class LineFollower(Behavior):
         #self.match_degree = abs(pid) / ((self.kp + self.kd) * 0.5)
         self.match_degree = 1
 
-        if abs(pid) < 0.2:
+        if abs(pid) < 0.1:
             self.motor_recommendations = [(Command.F, self.SPEED_FORWARD)]
         else:
             self.motor_recommendations = [(Command.R, self.SPEED * pid)]
