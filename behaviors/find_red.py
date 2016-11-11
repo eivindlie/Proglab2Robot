@@ -43,7 +43,7 @@ class FindRed(Behavior):
             self.match_degree = 1
         else:
             print("Find red value: ", value)
-            if distance < 10:
+            if distance < 15:
                 print("Finished")
                 self.request_halt = True
             if value < 0.4:
