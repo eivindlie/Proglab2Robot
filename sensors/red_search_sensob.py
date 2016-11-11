@@ -23,7 +23,7 @@ class RedSearchSensob(Sensob):
 
         self.last_time = time.time()
 
-        if num < 0.10 * w * h: # Less than 3% of the pixels are considered red
+        if num < 0.10 * w * h: # Less than 10% of the pixels are considered red
             self.value = -1
             print("Red val: ", self.value)
             return
