@@ -3,8 +3,18 @@ from motob import Command
 
 class FindRed(Behavior):
 
+    act_count = 0
+    last_count_status = "activated"
+
+    def consider_deactivation(self):
+        if self.bbcon.sensobs['line_pos'].get_value() != -1:
+            self.bbcon.deactivate_behavior(self)
+            self.bbcon.deactivate_sensob(self.bbcon.sensobs['red_search'])
+            self.bbcon.deactivate_sensor(self.bbcon.sensors['camera'])
+
+
     def consider_activation(self):
-        if self.bbcon.line_finished:
+        if self.bbcon.sensobs['line_pos'].get_value() == -1:
             self.bbcon.activate_behavior(self)
             self.bbcon.activate_sensob(self.bbcon.sensobs['red_search'])
             self.bbcon.activate_sensor(self.bbcon.sensors['camera'])
