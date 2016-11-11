@@ -21,7 +21,7 @@ def main():
     #bbcon.add_behavior(stand_still)
     #bbcon.activate_behavior(stand_still)
 
-    line_follower = LineFollower(bbcon, 1, [bbcon.sensobs['line_pos']])
+    line_follower = LineFollower(bbcon, 5, [bbcon.sensobs['line_pos']])
     bbcon.add_behavior(line_follower)
     bbcon.activate_behavior(line_follower)
 
@@ -33,9 +33,9 @@ def main():
 
 
 
-    #avoid_walls = AvoidWalls(bbcon, 100, [bbcon.sensobs['distance'], bbcon.sensobs['proximity']])
-    #bbcon.add_behavior(avoid_walls)
-    #bbcon.activate_behavior(avoid_walls)
+    avoid_walls = AvoidWalls(bbcon, 10, [bbcon.sensobs['distance'], bbcon.sensobs['proximity']])
+    bbcon.add_behavior(avoid_walls)
+    bbcon.activate_behavior(avoid_walls)
 
     while True:
         bbcon.run_one_timestep()
