@@ -53,5 +53,5 @@ class FindRed(Behavior):
                 self.motor_recommendations = [(Command.R, 0.3)]
                 self.match_degree = 1
             else:
-                self.motor_recommendations = [(Command.F, 0.2)]
+                self.motor_recommendations = [(Command.F, 0.3)]
                 self.match_degree = 1
