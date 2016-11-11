@@ -9,7 +9,7 @@ class Motors():
         self.setup()
 
     def setup(self):
-        self.max = 1024
+        self.max = 800
         self.high = 500
         self.normal = 300
         self.low = 100
@@ -106,9 +106,7 @@ class Motors():
     def set_right_dir(self, is_forward):
         wp.digitalWrite(24, is_forward)  # 0 is forward so if they pass 1 we 'not' it
 
-
     def persist(self, duration):
         if duration:
             sleep(duration)
             self.stop()
-
