@@ -4,7 +4,7 @@ from motob import Command
 class LineFollower(Behavior):
     last_error = 0
     last_value = .5
-    SPEED = 0.0
+    SPEED = 0.3
     first_tick = True
 
     kp = 0.7
@@ -37,13 +37,13 @@ class LineFollower(Behavior):
         pid = self.kp * error + self.kd * (error - self.last_error)
         print("PID", pid)
 
-        self.match_degree = abs(pid) / ((self.kp + self.kd) * 0.5)
+        #self.match_degree = abs(pid) / ((self.kp + self.kd) * 0.5)
+        self.match_degree = 1
         print("Match degree LF: ", self.match_degree)
 
-        if pid < -0.7:
+        if value < 0.2:
             self.motor_recommendations = [(Command.L, self.SPEED)]
-        elif pid > 0.7:
+        elif value > 0.8:
             self.motor_recommendations = [(Command.R, self.SPEED)]
         else:
-            self.match_degree = 1
-            self.motor_recommendations = [(Command.F, 0.2)]
+            self.motor_recommendations = [(Command.F, self.SPEED)]
