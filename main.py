@@ -8,10 +8,22 @@ from behaviors.find_red import FindRed
 
 from sensors.zumo_button import ZumoButton
 
+import signal
+import sys
+
+def signal_handler(signal, frame, bbcon):
+    print ('You pressed Ctrl+C!')
+    bbcon.motobs[0].stop()
+
+    sys.exit(0)
+
+
+
 def main():
     wp.wiringPiSetupGpio()
     #ZumoButton().wait_for_press()
     bbcon = BBCON()
+    signal.signal(signal.SIGINT, signal_handler, bbcon)
 
     run_forward = RunForward(bbcon, 2, [])
     bbcon.add_behavior(run_forward)

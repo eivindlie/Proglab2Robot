@@ -38,7 +38,7 @@ def main():
         #'red_search': RedSearchSensob([sensors['camera']]),
     }
 
-    commands = [(Command.F, 0.5), (Command.F, 1)]
+    commands = [(Command.F, 0.5), (Command.R, 0.5), (Command.F, 1)]
     i=0
     while True:
         for sensor in sensors.values():
