@@ -26,11 +26,11 @@ def main():
     #bbcon.activate_behavior(line_follower)
 
     bbcon.activate_sensob(bbcon.sensobs['red_search'])
-    bbcon.active_sensors(bbcon.sensors['camera'])
+    bbcon.activate_sensor(bbcon.sensors['camera'])
     find_red = FindRed(bbcon, 1, [bbcon.sensobs['red_search'], bbcon.sensobs['distance']])
     bbcon.add_behavior(find_red)
     bbcon.activate_behavior(find_red)
-    
+
 
 
     #avoid_walls = AvoidWalls(bbcon, 100, [bbcon.sensobs['distance'], bbcon.sensobs['proximity']])
