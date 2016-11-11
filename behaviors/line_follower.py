@@ -9,8 +9,8 @@ class LineFollower(Behavior):
     SPEED_FORWARD = 0.4
     first_tick = True
 
-    kp = 0.85
-    kd = 5
+    kp = 1.5
+    kd = 1.8
 
     def __init__(self, bbcon, priority, sensobs):
         super().__init__(bbcon, priority, sensobs)
@@ -38,8 +38,11 @@ class LineFollower(Behavior):
         pid = self.kp * error + self.kd * (error - self.last_error)
         self.last_error = error
 
+        if abs(pid) > 1:
+            pid /= abs(pid)
+
         print("PID:", pid)
-        
+
         #self.match_degree = abs(pid) / ((self.kp + self.kd) * 0.5)
         self.match_degree = 1
 
