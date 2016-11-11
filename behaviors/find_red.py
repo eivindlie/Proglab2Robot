@@ -9,8 +9,8 @@ class FindRed(Behavior):
     def consider_deactivation(self):
         if self.bbcon.sensobs['line_pos'].get_value() != -1:
 
-            if self.last_count_state == "deactivated":
-                self.last_count_state = "activated"
+            if not self.last_count_state:
+                self.last_count_state = True
                 self.act_count = 1
             else:
                 self.act_count += 1
@@ -23,8 +23,8 @@ class FindRed(Behavior):
 
     def consider_activation(self):
         if self.bbcon.sensobs['line_pos'].get_value() == -1:
-            if self.last_count_state == "activated":
-                self.last_count_state = "deactivated"
+            if self.last_count_state:
+                self.last_count_state = False
                 self.act_count = 1
             else:
                 self.act_count += 1
