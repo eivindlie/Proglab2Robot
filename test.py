@@ -23,8 +23,8 @@ def main():
 
     sensors = {
         'ultrasonic': Ultrasonic(0.05),
-        'IR': IRProximitySensor(),
-        'reflectance': ReflectanceSensors(False, 0, 900),
+        #'IR': IRProximitySensor(),
+        #'reflectance': ReflectanceSensors(False, 0, 900),
         'camera': Camera(),
     }
 
@@ -32,8 +32,8 @@ def main():
 
     sensobs = {
         'distance': DistanceSensob([sensors['ultrasonic']]),
-        'line_pos': LinePosSensob([sensors['reflectance']]),
-        'proximity': ProximitySensob([sensors['IR']]),
+        #'line_pos': LinePosSensob([sensors['reflectance']]),
+        #'proximity': ProximitySensob([sensors['IR']]),
         'red_search': RedSearchSensob([sensors['camera']]),
     }
 
