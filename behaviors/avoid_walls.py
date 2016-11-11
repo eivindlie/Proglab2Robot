@@ -1,7 +1,7 @@
 from behaviors.behavior import Behavior
 from motob import Command
 
-# Requires 1 distnace sensob as index 0 and 1 proximity sensob as index 1
+# Requires 1 distance sensob as index 0 and 1 proximity sensob as index 1
 class AvoidWalls(Behavior):
 
     def __init__(self, bbcon, priority, sensobs):
