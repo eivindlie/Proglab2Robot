@@ -30,9 +30,9 @@ def main():
     bbcon.add_behavior(find_red)
 
 
-    avoid_walls = AvoidWalls(bbcon, 10, [bbcon.sensobs['distance'], bbcon.sensobs['proximity']])
-    bbcon.add_behavior(avoid_walls)
-    bbcon.activate_behavior(avoid_walls)
+    #avoid_walls = AvoidWalls(bbcon, 10, [bbcon.sensobs['distance'], bbcon.sensobs['proximity']])
+    #bbcon.add_behavior(avoid_walls)
+    #bbcon.activate_behavior(avoid_walls)
 
     while True:
         bbcon.run_one_timestep()
