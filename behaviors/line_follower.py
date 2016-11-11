@@ -33,7 +33,7 @@ class LineFollower(Behavior):
 
         error = value - 0.5
         pid = self.kp * error + self.kd * (error - self.last_error)
-        print(pid)
+        print("PID", pid)
 
         self.match_degree = abs(pid) / ((self.kp + self.kd) * 0.5)
 
