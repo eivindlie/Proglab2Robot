@@ -2,6 +2,7 @@ from behaviors.behavior import Behavior
 from motob import Command
 
 class FindRed(Behavior):
+    SPEED = 0.8
 
     act_count = 0
     last_count_state = "activated"
@@ -40,7 +41,7 @@ class FindRed(Behavior):
 
         if value == -1:
             print("No red")
-            self.motor_recommendations = [(Command.TR, 0.3)]
+            self.motor_recommendations = [(Command.TR, self.SPEED)]
             self.match_degree = 1
         else:
             print("Find red value: ", value)
@@ -48,11 +49,11 @@ class FindRed(Behavior):
                 print("Finished")
                 self.request_halt = True
             if value < 0.4:
-                self.motor_recommendations = [(Command.L, 0.3)]
+                self.motor_recommendations = [(Command.L, self.SPEED)]
                 self.match_degree = 1
             elif value > 0.6:
-                self.motor_recommendations = [(Command.R, 0.3)]
+                self.motor_recommendations = [(Command.R, self.SPEED)]
                 self.match_degree = 1
             else:
-                self.motor_recommendations = [(Command.F, 0.3)]
+                self.motor_recommendations = [(Command.F, 0.4)]
                 self.match_degree = 1

@@ -27,7 +27,7 @@ class Motob:
             self.motors.right(self.value[1])
         elif c == Command.TL:
             self.motors.turn_left(self.value[1])
-        elif c== Command.TR:
+        elif c == Command.TR:
             self.motors.turn_right(self.value[1])
         elif c == Command.S:
             self.motors.stop()
