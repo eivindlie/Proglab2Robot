@@ -41,6 +41,6 @@ class LineFollower(Behavior):
         if value < 0.4:
             self.motor_recommendations = [(Command.L, self.SPEED+0.1)]
         elif value > 0.6:
-            self.motor_recommendations = [(Command.R, self.SPEED+0.15)]
+            self.motor_recommendations = [(Command.R, self.SPEED+0.1)]
         else:
             self.motor_recommendations = [(Command.F, self.SPEED)]
