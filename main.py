@@ -26,7 +26,7 @@ def main():
     bbcon.activate_behavior(line_follower)
 
 
-    find_red = FindRed(bbcon, 1, [bbcon.sensobs['red_search'], bbcon.sensobs['distance']])
+    find_red = FindRed(bbcon, 2, [bbcon.sensobs['red_search'], bbcon.sensobs['distance']])
     bbcon.add_behavior(find_red)
 
 

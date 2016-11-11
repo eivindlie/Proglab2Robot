@@ -21,7 +21,7 @@ class LineFollower(Behavior):
     def sense_and_act(self):
         if self.first_tick:
             self.first_tick = False
-            self.match_degree = 0.5
+            self.match_degree = 1
             self.motor_recommendations = [(Command.F, 0.2)]
 
         value = self.sensobs[0].get_value()
