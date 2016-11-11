@@ -22,23 +22,20 @@ def main():
     motors.stop()
 
     sensors = {
-        'ultrasonic': Ultrasonic(0.05),
-        #'IR': IRProximitySensor(),
+        #'ultrasonic': Ultrasonic(0.05),
+        'IR': IRProximitySensor(),
         #'reflectance': ReflectanceSensors(False, 0, 900),
-        'camera': Camera(),
+        #'camera': Camera(),
     }
 
     # Initialize sensobs
 
     sensobs = {
-        'distance': DistanceSensob([sensors['ultrasonic']]),
+        #'distance': DistanceSensob([sensors['ultrasonic']]),
         #'line_pos': LinePosSensob([sensors['reflectance']]),
-        #'proximity': ProximitySensob([sensors['IR']]),
-        'red_search': RedSearchSensob([sensors['camera']]),
+        'proximity': ProximitySensob([sensors['IR']]),
+        #'red_search': RedSearchSensob([sensors['camera']]),
     }
-
-
-
 
     while True:
         for sensor in sensors.values():

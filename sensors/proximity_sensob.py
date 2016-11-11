@@ -7,3 +7,4 @@ class ProximitySensob(Sensob):
 
     def update(self):
         self.value = self.sensors[0].get_value()
+        print(self.value)
